@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 import List from "./Components/List";
+import Input from "./Components/Input";
 
 export default function App() {
   const [list, setList] = useState([]);
@@ -38,20 +39,19 @@ export default function App() {
   };
 
   // const updatedInput = input;
-  // console.log(`[ Input ] updated input ${updatedInput}`);
+  // console.log(`[ Render Input ] updated input ${updatedInput}`);
 
   // const updatedList = list;
-  // console.log(`[ List ] updated list ${updatedList}`);
+  // console.log(`[ Render List ] updated list ${updatedList}`);
 
   return (
     <div className="App">
       <h1>List-App</h1>
       {/* UserInput : create list items  */}
-      <input
-        type="text"
+      <Input
         value={input}
-        onChange={(e) => handleInput(e.target.value)}
-        onKeyPress={(event) => saveInputTolist(event)}
+        handleInput={handleInput}
+        saveInputTolist={saveInputTolist}
       />
       <br />
       <br />
