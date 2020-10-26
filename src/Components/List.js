@@ -1,16 +1,18 @@
 import React from "react";
+import Input from "./Input";
 
 const List = ({ list, handleInputList }) => {
   const showList = (item, index) => {
     return (
-      <li key={index}>
-        <input
-          type="text"
+      <div>
+        <Input
+          key={index}
           value={item}
-          onChange={(e) => handleInputList(e.target.value, index)}
+          handleInputList={handleInputList}
+          inputIndex={index}
         />
         <button>x</button>
-      </li>
+      </div>
     );
   };
 
