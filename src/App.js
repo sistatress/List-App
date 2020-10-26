@@ -7,15 +7,40 @@ export default function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleInput = (value) => {
-    const newInput = value;
+  // const updateCounter = (id, value, result) => {
+  //   // Find the counter
+  //   const counterIndex = counters.findIndex(
+  //     (counterElement) => counterElement.id === id
+  //   );
+  //   // Copy of the counters array
+  //   const newCounters = [...counters];
 
-    console.log(`[ handleInput ] newInput: ${newInput}`);
+  //   // Udate the counter value
+  //   newCounters[counterIndex] = { ...newCounters[counterIndex], value: result };
 
-    setInput(newInput);
-  };
+  //   // Set counters state
+  //   setCounts(newCounters);
+  // };
 
-  const saveInputTolist = (event) => {
+  // LIST SCHEMA
+  /*
+      
+    [{item1}, {item2}, {item3}, ...]
+    item1 : [0] item2 : [1], item3 : [2], ...
+    
+    [
+      {itemId : id0, value: inputValue, counterdefaultValue : 0}, // item1 : [0]
+      {itemId : id1, value: inputValue, counterValue: defaultValue=0}, // item2 : [1]
+      {itemId : id2, value: inputValue, counterValue: defaultValue=0}, // item3 : [2] 
+      ...
+    ]
+  
+  */
+
+  const saveInputTolist = (event, index) => {
+    console.log(` [App | saveInputTolist] 
+    index : ${index}`);
+
     const eventComing = event.key;
     //console.log(`[ saveInputTolist 1] event Coming ${eventComing}`);
 
@@ -25,11 +50,35 @@ export default function App() {
     }
 
     // Enter event
-    const eventValue = event.target.value;
-    //console.log(`[ saveInputTolist 2] the value of the event ${eventValue}`);
+    const inputValue = event.target.value;
+    // const itemIndex = list.findIndex((counterElement) => counterElement.id === index );  // Find Item
+    // const newList = [...list];  // List copy
+    // newList[itemIndex] = { ...newList[itemIndex], value: inputValue }; // Udate the counter value
+    const item = {
+      itemId: index,
+      itemValue: inputValue,
+      counterdefaultValue: 0
+    };
 
-    setList([...list, eventValue]);
+    const oldList = [...list]; // List copy
+
+    // Set counters state
+    setList([
+      ...list,
+      { itemId: index, itemValue: inputValue, counterdefaultValue: 0 }
+    ]);
     setInput("");
+
+    // ToDO : clear input
+  };
+
+  const handleInput = (value) => {
+    const newInput = value;
+
+    console.log(`[ App | handleInput ] 
+    newInput: ${newInput}`);
+
+    setInput(newInput);
   };
 
   const handleInputList = (value, index) => {
@@ -41,8 +90,10 @@ export default function App() {
   // const updatedInput = input;
   // console.log(`[ Render Input ] updated input ${updatedInput}`);
 
-  // const updatedList = list;
-  // console.log(`[ Render List ] updated list ${updatedList}`);
+  const updatedList = list;
+
+  console.log(`[ App | updated Global input list ] 
+  updated list : ${updatedList}`);
 
   return (
     <div className="App">

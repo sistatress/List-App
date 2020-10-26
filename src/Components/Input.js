@@ -11,17 +11,19 @@ const Input = ({ value, ...action }) => {
       ? (e) => handleInput(e.target.value)
       : (e) => handleInputList(e.target.value, inputIndex);
   // const { saveInputTolist } = action.saveInputTolist
-
+  const inputIndexAction = inputIndex === undefined ? null : inputIndex;
   const inputOnKeyPressAction =
-    saveInputTolist === undefined ? null : (event) => saveInputTolist(event);
+    saveInputTolist === undefined
+      ? null
+      : (event) => saveInputTolist(event, inputIndexAction);
 
-  logInputAction(
-    handleInput,
-    handleInputList,
-    saveInputTolist,
-    inputOnChangeAction,
-    inputOnKeyPressAction
-  );
+  // logInputAction(
+  //   handleInput,
+  //   handleInputList,
+  //   saveInputTolist,
+  //   inputOnChangeAction,
+  //   inputOnKeyPressAction
+  // );
 
   return (
     <div>

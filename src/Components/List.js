@@ -1,17 +1,22 @@
 import React from "react";
 import Input from "./Input";
+// import Counter from "./Counter";
 
 const List = ({ list, handleInputList }) => {
+  const { itemId, itemValue, counterdefaultValue } = list;
+
   const showList = (item, index) => {
     return (
-      <div>
+      <div key={index}>
+        {" "}
+        {/* list item */}
         <Input
-          key={index}
-          value={item}
+          //key={index}
+          value={item.itemValue}
           handleInputList={handleInputList}
           inputIndex={index}
         />
-        <button>x</button>
+        {/* <Counter key={index}/> */}
       </div>
     );
   };
