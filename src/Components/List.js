@@ -8,7 +8,6 @@ const List = ({ list, handleInputList }) => {
           type="text"
           value={item}
           onChange={(e) => handleInputList(e.target.value, index)}
-          //onKeyPress={(event) => updateList(event, index)}
         />
         <button>x</button>
       </li>
