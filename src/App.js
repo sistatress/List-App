@@ -1,42 +1,35 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
+//import Counter from "./Counter";
 
 export default function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
 
-  // const updateCounter = (id, value, result) => {
-  //   // Find the counter
-  //   const counterIndex = counters.findIndex(
-  //     (counterElement) => counterElement.id === id
-  //   );
-  //   // Copy of the counters array
-  //   const newCounters = [...counters];
+  // handle UserInput
+  const handleInput = (value) => {
+    const newInput = value;
+    setInput(newInput);
+  };
 
-  //   // Udate the counter value
-  //   newCounters[counterIndex] = { ...newCounters[counterIndex], value: result };
+  // Modify list state value property
+  const updateItemValue = (value, id) => {
+    //console.log(`id : ${id}`)
+    const itemIndex = list.findIndex(
+      (itemElement) => itemElement.itemId === id
+    );
 
-  //   // Set counters state
-  //   setCounts(newCounters);
-  // };
+    //console.log(`itemIndex ${itemIndex}`)
+    const listItems = [...list];
 
-  // LIST SCHEMA
-  /*
-      
-    [{item1}, {item2}, {item3}, ...]
-    item1 : [0] item2 : [1], item3 : [2], ...
-    
-    [
-      {itemId : id0, value: inputValue, counterdefaultValue : 0}, // item1 : [0]
-      {itemId : id1, value: inputValue, counterValue: defaultValue=0}, // item2 : [1]
-      {itemId : id2, value: inputValue, counterValue: defaultValue=0}, // item3 : [2] 
-      ...
-    ]
-  
-  */
+    listItems[itemIndex] = { ...listItems[itemIndex], itemValue: value };
+    setList([...listItems]);
+  };
 
+  // Add new item to list
   const saveInputTolist = (event) => {
     const eventComing = event.key;
     //console.log(`[ saveInputTolist 1] event Coming ${eventComing}`);
@@ -45,55 +38,22 @@ export default function App() {
     if (eventComing !== "Enter") {
       return;
     }
-    // console.log(` [App | saveInputTolist]
-    // index : ${index}`);
 
     // Enter event
     const inputValue = event.target.value;
-    // const itemIndex = list.findIndex((counterElement) => counterElement.id === index );  // Find Item
-    // const newList = [...list];  // List copy
-    // newList[itemIndex] = { ...newList[itemIndex], value: inputValue }; // Udate the counter value
+    const id = uuidv4();
     const item = {
-      itemId: 1,
+      itemId: id,
       itemValue: inputValue,
       counterdefaultValue: 0
     };
 
-    //const oldList = [...list]; // List copy
-
     // Set counters state
-    setList([
-      ...list,
-      item
-      // { itemId: index, itemValue: inputValue, counterdefaultValue: 0 }
-    ]);
+    setList([...list, item]);
+
+    // Clear User Input
     setInput("");
-
-    // ToDO : clear input
   };
-
-  const handleInput = (value) => {
-    const newInput = value;
-
-    // console.log(`[ App | handleInput ]
-    // newInput: ${newInput}`);
-
-    setInput(newInput);
-  };
-
-  const handleInputList = (value, index) => {
-    const oldList = list;
-    oldList[index].itemValue = value;
-    setList([...oldList]);
-  };
-
-  // const updatedInput = input;
-  // console.log(`[ Render Input ] updated input ${updatedInput}`);
-
-  const updatedList = list;
-
-  console.log(`[ App | updated Global input list ] 
-  updated list : ${updatedList}`);
 
   return (
     <div className="App">
@@ -107,7 +67,37 @@ export default function App() {
       <br />
       <br />
       {/* Show a list */}
-      <List list={list} handleInputList={handleInputList} />
+      <List list={list} handleInputList={updateItemValue} />
     </div>
   );
 }
+
+// const updateCounter = (id, value, result) => {
+//   // Find the counter
+//   const counterIndex = counters.findIndex(
+//     (counterElement) => counterElement.id === id
+//   );
+//   // Copy of the counters array
+//   const newCounters = [...counters];
+
+//   // Udate the counter value
+//   newCounters[counterIndex] = { ...newCounters[counterIndex], value: result };
+
+//   // Set counters state
+//   setCounts(newCounters);
+// };
+
+// LIST SCHEMA
+/*
+      
+    [{item1}, {item2}, {item3}, ...]
+    item1 : [0] item2 : [1], item3 : [2], ...
+    
+    [
+      {itemId : id0, value: inputValue, counterdefaultValue : 0}, // item1 : [0]
+      {itemId : id1, value: inputValue, counterValue: defaultValue=0}, // item2 : [1]
+      {itemId : id2, value: inputValue, counterValue: defaultValue=0}, // item3 : [2] 
+      ...
+    ]
+  
+  */

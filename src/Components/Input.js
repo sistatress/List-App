@@ -5,17 +5,18 @@ const Input = ({ value, ...action }) => {
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
   const itemId = action.itemId;
-  // console.log(`[ Input ] inputIndex : ${inputIndex}`);
+
   const inputOnChangeAction =
     handleInputList === undefined
       ? (e) => handleInput(e.target.value)
       : (e) => handleInputList(e.target.value, itemId);
-  // console.log(`[ Input ] handleInputList : ${handleInputList}`);
-  // const { saveInputTolist } = action.saveInputTolist
-  //const inputIndexAction = inputIndex === undefined ? null : inputIndex;
+
   const inputOnKeyPressAction =
     saveInputTolist === undefined
-      ? () => console.log("NO")
+      ? () =>
+          console.log(
+            "TODO: tap Enter in list should permit to focus next item (input) "
+          )
       : (event) => saveInputTolist(event);
 
   // logInputAction(
