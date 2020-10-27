@@ -4,12 +4,12 @@ const Input = ({ value, ...action }) => {
   const handleInput = action.handleInput;
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
-  const inputIndex = action.inputIndex;
+  const itemId = action.itemId;
   // console.log(`[ Input ] inputIndex : ${inputIndex}`);
   const inputOnChangeAction =
     handleInputList === undefined
       ? (e) => handleInput(e.target.value)
-      : (e) => handleInputList(e.target.value, inputIndex);
+      : (e) => handleInputList(e.target.value, itemId);
   // console.log(`[ Input ] handleInputList : ${handleInputList}`);
   // const { saveInputTolist } = action.saveInputTolist
   //const inputIndexAction = inputIndex === undefined ? null : inputIndex;

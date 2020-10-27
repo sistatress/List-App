@@ -6,8 +6,8 @@ const List = ({ list, handleInputList }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
 
   const showList = (item, index) => {
-    // console.log(`[ List ]
-    // index : ${index}`);
+    console.log(`[ List ]
+    itemId : ${item.itemId}`);
     return (
       <div key={index}>
         {/* list item */}
@@ -15,7 +15,7 @@ const List = ({ list, handleInputList }) => {
           //key={index}
           value={item.itemValue}
           handleInputList={handleInputList}
-          inputIndex={index}
+          itemId={item.itemId}
         />
         {/* <Counter key={index}/> */}
       </div>
