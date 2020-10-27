@@ -1,32 +1,21 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
+import "./App.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
-//import Counter from "./Counter";
+import Counter from "./Components/Counter";
 
 export default function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
 
+  /* User Input */
+
   // handle UserInput
   const handleInput = (value) => {
     const newInput = value;
     setInput(newInput);
-  };
-
-  // Modify list state value property
-  const updateItemValue = (value, id) => {
-    //console.log(`id : ${id}`)
-    const itemIndex = list.findIndex(
-      (itemElement) => itemElement.itemId === id
-    );
-
-    //console.log(`itemIndex ${itemIndex}`)
-    const listItems = [...list];
-
-    listItems[itemIndex] = { ...listItems[itemIndex], itemValue: value };
-    setList([...listItems]);
   };
 
   // Add new item to list
@@ -55,19 +44,43 @@ export default function App() {
     setInput("");
   };
 
+  /* Input List */
+
+  // Modify list state value property
+  const updateItemValue = (value, id) => {
+    //console.log(`id : ${id}`)
+    const itemIndex = list.findIndex(
+      (itemElement) => itemElement.itemId === id
+    );
+
+    //console.log(`itemIndex ${itemIndex}`)
+    const listItems = [...list];
+
+    listItems[itemIndex] = { ...listItems[itemIndex], itemValue: value };
+    setList([...listItems]);
+  };
+
   return (
     <div className="App">
-      <h1>List-App</h1>
+      <h1 className="app-title">List-App</h1>
       {/* UserInput : create list items  */}
-      <Input
-        value={input}
-        handleInput={handleInput}
-        saveInputTolist={saveInputTolist}
-      />
+      <div className="user-input">
+        <Input
+          value={input}
+          handleInput={handleInput}
+          saveInputTolist={saveInputTolist}
+        />
+      </div>
       <br />
       <br />
-      {/* Show a list */}
-      <List list={list} handleInputList={updateItemValue} />
+      <div className="container">
+        <div className="list-container">
+          <List list={list} handleInputList={updateItemValue} />
+        </div>
+        <div className="counters-container">
+          <Counter />
+        </div>
+      </div>
     </div>
   );
 }

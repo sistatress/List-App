@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./Input";
+import "./list.css";
 
 const List = ({ list, handleInputList }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
@@ -10,7 +11,7 @@ const List = ({ list, handleInputList }) => {
 
     /* Item */
     return (
-      <div key={index}>
+      <div key={index} className="item">
         <Input
           //key={index}
           value={item.itemValue}
@@ -22,10 +23,10 @@ const List = ({ list, handleInputList }) => {
   };
 
   return (
-    <div>
-      <h1>List Component</h1>
+    <>
+      <h3>List Component</h3>
       {list.map(showList)}
-    </div>
+    </>
   );
 };
 

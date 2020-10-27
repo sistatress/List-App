@@ -1,0 +1,18 @@
+.app-title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: auto;
+}
+
+.user-input {
+  width: 180px;
+  margin: auto;
+}
+
+.counters-container {
+  display: flex;
+  /* flex-direction: column; */
+}

@@ -28,7 +28,7 @@ const Input = ({ value, ...action }) => {
   // );
 
   return (
-    <div>
+    <>
       {/* <h2>Input Component</h2> */}
       <input
         type="text"
@@ -36,7 +36,7 @@ const Input = ({ value, ...action }) => {
         onChange={inputOnChangeAction}
         onKeyPress={inputOnKeyPressAction}
       />
-    </div>
+    </>
   );
 };
 

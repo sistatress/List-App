@@ -1,0 +1,11 @@
+.counter-label {
+  margin-right: 10px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.counter {
+  width: 25px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}

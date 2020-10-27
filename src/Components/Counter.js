@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./counter.css";
 
 const Counter = ({ id, value, onAdd, onSubtract, onDelete }) => {
   useEffect(() => {
@@ -9,12 +10,15 @@ const Counter = ({ id, value, onAdd, onSubtract, onDelete }) => {
 
   return (
     <div>
-      {/* <h1>Counter Component</h1> */}
-      <h2>{value}</h2>
+      <h3>Counter Component</h3>
+      <label className="counter-label">0</label>
+      <button className="counter">+</button>
+      <button className="counter">-</button>
+      {/* <h2>{value}</h2>
       <button onClick={() => onSubtract(id, value)}>-</button>
       <button onClick={() => onAdd(id, value)}>+</button>
       <br />
-      <button onClick={() => onDelete(id)}>Delete Counter</button>
+      <button onClick={() => onDelete(id)}>Delete Counter</button> */}
     </div>
   );
 };
