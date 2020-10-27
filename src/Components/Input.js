@@ -5,17 +5,18 @@ const Input = ({ value, ...action }) => {
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
   const inputIndex = action.inputIndex;
-
+  // console.log(`[ Input ] inputIndex : ${inputIndex}`);
   const inputOnChangeAction =
     handleInputList === undefined
       ? (e) => handleInput(e.target.value)
       : (e) => handleInputList(e.target.value, inputIndex);
+  console.log(`[ Input ] handleInputList : ${handleInputList}`);
   // const { saveInputTolist } = action.saveInputTolist
-  const inputIndexAction = inputIndex === undefined ? null : inputIndex;
+  //const inputIndexAction = inputIndex === undefined ? null : inputIndex;
   const inputOnKeyPressAction =
     saveInputTolist === undefined
-      ? null
-      : (event) => saveInputTolist(event, inputIndexAction);
+      ? () => console.log("NO")
+      : (event, inputIndex) => saveInputTolist(event, inputIndex);
 
   // logInputAction(
   //   handleInput,
