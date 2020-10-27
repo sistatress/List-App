@@ -37,7 +37,7 @@ export default function App() {
   
   */
 
-  const saveInputTolist = (event, index) => {
+  const saveInputTolist = (event) => {
     const eventComing = event.key;
     //console.log(`[ saveInputTolist 1] event Coming ${eventComing}`);
 
@@ -45,8 +45,8 @@ export default function App() {
     if (eventComing !== "Enter") {
       return;
     }
-    console.log(` [App | saveInputTolist] 
-    index : ${index}`);
+    // console.log(` [App | saveInputTolist]
+    // index : ${index}`);
 
     // Enter event
     const inputValue = event.target.value;
@@ -54,7 +54,7 @@ export default function App() {
     // const newList = [...list];  // List copy
     // newList[itemIndex] = { ...newList[itemIndex], value: inputValue }; // Udate the counter value
     const item = {
-      itemId: index,
+      itemId: 1,
       itemValue: inputValue,
       counterdefaultValue: 0
     };
@@ -75,8 +75,8 @@ export default function App() {
   const handleInput = (value) => {
     const newInput = value;
 
-    console.log(`[ App | handleInput ] 
-    newInput: ${newInput}`);
+    // console.log(`[ App | handleInput ]
+    // newInput: ${newInput}`);
 
     setInput(newInput);
   };

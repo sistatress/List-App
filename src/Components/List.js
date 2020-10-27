@@ -3,11 +3,11 @@ import Input from "./Input";
 // import Counter from "./Counter";
 
 const List = ({ list, handleInputList }) => {
-  const { itemId, itemValue, counterdefaultValue } = list;
+  //const { itemId, itemValue, counterdefaultValue } = list;
 
   const showList = (item, index) => {
-    console.log(`[ List ] 
-    index : ${index}`);
+    // console.log(`[ List ]
+    // index : ${index}`);
     return (
       <div key={index}>
         {/* list item */}

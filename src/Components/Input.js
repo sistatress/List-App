@@ -10,13 +10,13 @@ const Input = ({ value, ...action }) => {
     handleInputList === undefined
       ? (e) => handleInput(e.target.value)
       : (e) => handleInputList(e.target.value, inputIndex);
-  console.log(`[ Input ] handleInputList : ${handleInputList}`);
+  // console.log(`[ Input ] handleInputList : ${handleInputList}`);
   // const { saveInputTolist } = action.saveInputTolist
   //const inputIndexAction = inputIndex === undefined ? null : inputIndex;
   const inputOnKeyPressAction =
     saveInputTolist === undefined
       ? () => console.log("NO")
-      : (event, inputIndex) => saveInputTolist(event, inputIndex);
+      : (event) => saveInputTolist(event);
 
   // logInputAction(
   //   handleInput,
