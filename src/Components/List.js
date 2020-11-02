@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 import "./list.css";
 
-const List = ({ list, handleInputList }) => {
+const List = ({ list, handleInputList, deleteItem }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
 
   const showList = (item, index) => {
@@ -18,6 +18,9 @@ const List = ({ list, handleInputList }) => {
           handleInputList={handleInputList}
           itemId={item.itemId}
         />
+        <button className="counter" onClick={() => deleteItem(item.itemId)}>
+          x
+        </button>
       </div>
     );
   };

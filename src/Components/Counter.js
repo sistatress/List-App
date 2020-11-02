@@ -14,6 +14,7 @@ const Counter = ({ id, label, value, onAdd, onSubtract }) => {
       <button className="counter" onClick={() => onSubtract(id, value)}>
         -
       </button>
+
       {/* <h2>{value}</h2>
       <button onClick={() => onSubtract(id, value)}>-</button>
       <button onClick={() => onAdd(id, value)}>+</button>

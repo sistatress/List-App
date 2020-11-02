@@ -96,6 +96,17 @@ export default function App() {
     setList([...listItems]);
   };
 
+  const onDeleteItem = (id) => {
+    // Copy of the counters array
+    const listItems = [...list];
+
+    // Delete counter
+    const newList = listItems.filter((item) => item.itemId !== id);
+
+    // Set counters state
+    setList(newList);
+  };
+
   return (
     <div className="App">
       <h1 className="app-title">List-App</h1>
@@ -111,7 +122,11 @@ export default function App() {
       <br />
       <div className="container">
         <div className="list-container">
-          <List list={list} handleInputList={updateItemValue} />
+          <List
+            list={list}
+            handleInputList={updateItemValue}
+            deleteItem={onDeleteItem}
+          />
         </div>
         <div className="counters-container">
           {/* <Counter label={0} /> */}
