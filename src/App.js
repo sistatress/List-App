@@ -61,13 +61,31 @@ export default function App() {
   };
 
   const handleAdd = (id, value) => {
-    console.log(`value: ${value} Id: ${id}`);
+    //console.log(`value: ${value} Id: ${id}`);
     const itemIndex = list.findIndex(
       (itemElement) => itemElement.itemId === id
     );
 
     const listItems = [...list];
     const newCounterValue = value + 1;
+
+    listItems[itemIndex] = {
+      ...listItems[itemIndex],
+      counterValue: newCounterValue
+    };
+    console.log(`listItems: ${JSON.stringify(listItems)}`);
+    console.log(`newCounterValue: ${newCounterValue}`);
+    setList([...listItems]);
+  };
+
+  const subtract = (id, value) => {
+    //console.log(`value: ${value} Id: ${id}`);
+    const itemIndex = list.findIndex(
+      (itemElement) => itemElement.itemId === id
+    );
+
+    const listItems = [...list];
+    const newCounterValue = --value;
 
     listItems[itemIndex] = {
       ...listItems[itemIndex],
@@ -97,7 +115,7 @@ export default function App() {
         </div>
         <div className="counters-container">
           {/* <Counter label={0} /> */}
-          <Counters list={list} onAdd={handleAdd} />
+          <Counters list={list} onAdd={handleAdd} onSubtract={subtract} />
         </div>
       </div>
     </div>

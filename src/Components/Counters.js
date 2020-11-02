@@ -3,16 +3,17 @@ import Counter from "./Counter";
 
 const Counters = ({ list, counterValue, onAdd, onSubtract, onDelete }) => {
   const showCounters = (element, index) => {
-    console.log(
-      `Counters id: ${element.itemId} value: ${element.counterValue} index: ${index}`
-    );
+    console
+      .log
+      //`Counters id: ${element.itemId} value: ${element.counterValue} index: ${index}`
+      ();
     return (
       <div key={index}>
         <Counter
           id={element.itemId}
           value={element.counterValue}
           onAdd={onAdd}
-          //onSubtract={onSubtract}
+          onSubtract={onSubtract}
           //onDelete={onDelete}
         />
       </div>
