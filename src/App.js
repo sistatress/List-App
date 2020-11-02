@@ -4,7 +4,7 @@ import "./styles.css";
 import "./App.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
-import Counter from "./Components/Counter";
+import Counters from "./Components/Counters";
 
 export default function App() {
   const [list, setList] = useState([]);
@@ -34,7 +34,7 @@ export default function App() {
     const item = {
       itemId: id,
       itemValue: inputValue,
-      counterdefaultValue: 0
+      counterValue: 0
     };
 
     // Set counters state
@@ -60,6 +60,24 @@ export default function App() {
     setList([...listItems]);
   };
 
+  const handleAdd = (id, value) => {
+    console.log(`value: ${value} Id: ${id}`);
+    const itemIndex = list.findIndex(
+      (itemElement) => itemElement.itemId === id
+    );
+
+    const listItems = [...list];
+    const newCounterValue = value + 1;
+
+    listItems[itemIndex] = {
+      ...listItems[itemIndex],
+      counterValue: newCounterValue
+    };
+    console.log(`listItems: ${JSON.stringify(listItems)}`);
+    console.log(`newCounterValue: ${newCounterValue}`);
+    setList([...listItems]);
+  };
+
   return (
     <div className="App">
       <h1 className="app-title">List-App</h1>
@@ -78,7 +96,8 @@ export default function App() {
           <List list={list} handleInputList={updateItemValue} />
         </div>
         <div className="counters-container">
-          <Counter />
+          {/* <Counter label={0} /> */}
+          <Counters list={list} onAdd={handleAdd} />
         </div>
       </div>
     </div>

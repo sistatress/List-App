@@ -24,7 +24,7 @@ const List = ({ list, handleInputList }) => {
 
   return (
     <>
-      <h3>List Component</h3>
+      {/* <h3>List Component</h3> */}
       {list.map(showList)}
     </>
   );
