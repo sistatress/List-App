@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import "./counter.css";
 
-const Counter = ({ id, label, value, onAdd, onSubtract }) => {
+const Counter = ({ id, value, onAdd, onSubtract }) => {
   //console.log(`value: ${value}, id: ${id}`);
   return (
-    <>
+    <div className="item">
       {/* <h3>Counter Component</h3> */}
       <label className="counter-label">{value}</label>
       <button className="counter" onClick={() => onAdd(id, value)}>
@@ -20,17 +20,12 @@ const Counter = ({ id, label, value, onAdd, onSubtract }) => {
       <button onClick={() => onAdd(id, value)}>+</button>
       <br />
       <button onClick={() => onDelete(id)}>Delete Counter</button> */}
-    </>
+    </div>
   );
 };
 
 Counter.defaultProps = {
-  label: "nul",
   counterdefaultValue: 0
-};
-
-Counter.prototype = {
-  label: PropTypes.string.isRequired
 };
 
 export default Counter;

@@ -107,9 +107,11 @@ export default function App() {
     setList(newList);
   };
 
+  const isList = list.length > 0 ? true : false;
+
   return (
     <div className="App">
-      <h1 className="app-title">List-App</h1>
+      <h1 className="app-title">List-App : {isList}</h1>
       {/* UserInput : create list items  */}
       <div className="user-input">
         <Input
@@ -120,19 +122,21 @@ export default function App() {
       </div>
       <br />
       <br />
-      <div className="container">
-        <div className="list-container">
-          <List
-            list={list}
-            handleInputList={updateItemValue}
-            deleteItem={onDeleteItem}
-          />
+      {isList ? (
+        <div className="container">
+          <div className="list-container">
+            <List
+              list={list}
+              handleInputList={updateItemValue}
+              deleteItem={onDeleteItem}
+            />
+          </div>
+          <div className="counters-container">
+            {/* <Counter label={0} /> */}
+            <Counters list={list} onAdd={handleAdd} onSubtract={subtract} />
+          </div>
         </div>
-        <div className="counters-container">
-          {/* <Counter label={0} /> */}
-          <Counters list={list} onAdd={handleAdd} onSubtract={subtract} />
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }

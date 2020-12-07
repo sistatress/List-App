@@ -18,7 +18,10 @@ const List = ({ list, handleInputList, deleteItem }) => {
           handleInputList={handleInputList}
           itemId={item.itemId}
         />
-        <button className="counter" onClick={() => deleteItem(item.itemId)}>
+        <button
+          className="delete-button"
+          onClick={() => deleteItem(item.itemId)}
+        >
           x
         </button>
       </div>

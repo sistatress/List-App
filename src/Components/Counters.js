@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 
-const Counters = ({ list, counterValue, onAdd, onSubtract, onDelete }) => {
+const Counters = ({ list, counterValue, onAdd, onSubtract }) => {
   const showCounters = (element, index) => {
     console
       .log
@@ -14,7 +14,6 @@ const Counters = ({ list, counterValue, onAdd, onSubtract, onDelete }) => {
           value={element.counterValue}
           onAdd={onAdd}
           onSubtract={onSubtract}
-          //onDelete={onDelete}
         />
       </div>
     );
