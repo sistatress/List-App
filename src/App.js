@@ -5,7 +5,7 @@ import "./App.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
 import Counters from "./Components/Counters";
-import NavigationBar from "./Components/NavigationBar";
+import NavBar from "./Components/NavigationBar";
 import { Grid, Paper, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -127,9 +127,7 @@ export default function App() {
     <div className="App">
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <NavigationBar />
-          </Paper>
+          <NavBar />
         </Grid>
         <Grid item xs={2}>
           <Paper className={classes.paper}>left xs=2</Paper>
