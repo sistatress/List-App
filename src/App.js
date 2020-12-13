@@ -5,6 +5,19 @@ import "./App.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
 import Counters from "./Components/Counters";
+import NavigationBar from "./Components/NavigationBar";
+import { Grid, Paper, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary
+  }
+}));
 
 export default function App() {
   const [list, setList] = useState([]);
@@ -108,11 +121,29 @@ export default function App() {
   };
 
   const isList = list.length > 0 ? true : false;
+  const classes = useStyles();
 
   return (
     <div className="App">
-      <h1 className="app-title">List-App : {isList}</h1>
-      {/* UserInput : create list items  */}
+      <Grid container spacing={3} alignItems="center">
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <NavigationBar />
+          </Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>left xs=2</Paper>
+        </Grid>
+        <Grid item xs={8}>
+          <Paper className={classes.paper}>List creation xs=8</Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>rigth xs=2</Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>Footer xs=12</Paper>
+        </Grid>
+      </Grid>
       <div className="user-input">
         <Input
           value={input}

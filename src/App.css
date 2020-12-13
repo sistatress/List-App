@@ -8,8 +8,12 @@
 }
 
 .user-input {
-  width: 180px;
-  margin: auto;
+  width: auto;
+  margin: 21px auto 21px auto;
+}
+
+.input-element {
+  padding: auto;
 }
 
 .counters-container {
