@@ -11,12 +11,13 @@ const List = ({ list, handleInputList, deleteItem }) => {
 
     /* Item */
     return (
-      <div key={index} className="item">
+      <div key={index} className="list-items">
         <Input
           //key={index}
           value={item.itemValue}
           handleInputList={handleInputList}
           itemId={item.itemId}
+          className='input-items'
         />
         <button
           className="delete-button"

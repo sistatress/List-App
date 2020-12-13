@@ -130,11 +130,11 @@ export default function App() {
         <Grid item xs={12}>
           <NavBar />
         </Grid>
-        <Grid item xs={2}>
+        {/* <Grid item xs={1}>
           <Paper className={classes.paper}>left xs=2</Paper>
-        </Grid>
+        </Grid> */}
         {/* main */}
-        <Grid item xs={8}>
+        <Grid item xs={10}>
           <Grid
             container
             direction="colum"
@@ -157,7 +157,6 @@ export default function App() {
                   />
                 </div>
                 <div className="counters-container">
-                  {/* <Counter label={0} /> */}
                   <Counters
                     list={list}
                     onAdd={handleAdd}
@@ -178,9 +177,9 @@ export default function App() {
             </div>
           </Grid>
         </Grid>
-        <Grid item xs={2}>
+        {/* <Grid item xs={1}>
           <Paper className={classes.paper}>rigth xs=2</Paper>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <Paper className={classes.paper}>Footer xs=12</Paper>
         </Grid>

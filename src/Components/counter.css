@@ -1,7 +1,13 @@
+label {
+  height: 18px;
+  width: 18px;
+}
+
 .counter-label {
-  margin-right: 10px;
+  margin-right: 22px;
   margin-left: 10px;
   text-align: center;
+  font-family: monospace;
 }
 
 .counter {
@@ -10,5 +16,19 @@
   margin-right: 5px;
 }
 
+.counter-button {
+  margin: 5px 5px;
+}
+
 .item {
+  /* margin: 5px 5px; */
+}
+
+.item > Typography {
+  margin-right: 7px;
+}
+
+.counter-label {
+  width: 18px;
+  height: 18px;
 }
