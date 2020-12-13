@@ -3,9 +3,17 @@ label {
   width: 18px;
 }
 
-.counter-label {
+.counter-items {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.counter-label-typography {
   /* margin-right: 22px;
   margin-left: 10px; */
+  width: 18px;
+  height: 18px;
   text-align: center;
   font-family: monospace;
 }
@@ -18,11 +26,6 @@ label {
 
 .counter-button {
   margin: 5px 5px;
-}
-
-.item {
-  display: flex;
-  align-items: baseline;
 }
 
 .item > Typography {

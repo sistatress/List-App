@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 import "./list.css";
 import Counter from "./Counter";
-import { Grid } from "@material-ui/core"; 
+import { Grid } from "@material-ui/core";
 
 const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
@@ -14,31 +14,27 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
     /* Item */
     return (
       <div key={index} className="list-items">
-        <Grid
-            container
-            direction="row"
-            justify="center"
+        <Grid container direction="row" justify="space-evenly">
+          <Input
+            //key={index}
+            value={item.itemValue}
+            handleInputList={handleInputList}
+            itemId={item.itemId}
+            className="input-items"
+          />
+          <Counter
+            id={item.itemId}
+            list={list}
+            onAdd={onAdd}
+            onSubtract={onSubtract}
+            value={item.counterValue}
+          />
+          <button
+            className="delete-button"
+            onClick={() => deleteItem(item.itemId)}
           >
-        <Input
-          //key={index}
-          value={item.itemValue}
-          handleInputList={handleInputList}
-          itemId={item.itemId}
-          className='input-items'
-        />
-        <Counter
-          id={item.itemId}
-          list={list}
-          onAdd={onAdd}
-          onSubtract={onSubtract}
-          value={item.counterValue}
-        />
-        <button
-          className="delete-button"
-          onClick={() => deleteItem(item.itemId)}
-        >
-          x
-        </button>
+            x
+          </button>
         </Grid>
       </div>
     );

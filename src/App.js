@@ -4,7 +4,6 @@ import "./styles.css";
 import "./App.css";
 import List from "./Components/List";
 import Input from "./Components/Input";
-import Counters from "./Components/Counters";
 import NavBar from "./Components/NavigationBar";
 import { Grid, Paper, makeStyles } from "@material-ui/core";
 
@@ -126,37 +125,32 @@ export default function App() {
   return (
     <div className="App">
       <Grid container spacing={3}>
-        
         {/* Navigation Bar */}
         <Grid item xs={12}>
           <NavBar />
         </Grid>
 
         <Grid item lg={8}>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-          >
+          <Grid container direction="column" justify="center">
             {isList ? (
-                <List
-                  list={list}
-                  handleInputList={updateItemValue}
-                  deleteItem={onDeleteItem}
-                  onAdd={handleAdd}
-                  onSubtract={subtract}
-                />
+              <List
+                list={list}
+                handleInputList={updateItemValue}
+                deleteItem={onDeleteItem}
+                onAdd={handleAdd}
+                onSubtract={subtract}
+              />
             ) : null}
           </Grid>
           {/* user-input */}
 
           <div className="user-input">
-              <Input
-                value={input}
-                handleInput={handleInput}
-                saveInputTolist={saveInputTolist}
-              />
-            </div>
+            <Input
+              value={input}
+              handleInput={handleInput}
+              saveInputTolist={saveInputTolist}
+            />
+          </div>
         </Grid>
         {/* <Grid item xs={1}>
           <Paper className={classes.paper}>rigth xs=2</Paper>
