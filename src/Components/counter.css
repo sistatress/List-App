@@ -4,8 +4,8 @@ label {
 }
 
 .counter-label {
-  margin-right: 22px;
-  margin-left: 10px;
+  /* margin-right: 22px;
+  margin-left: 10px; */
   text-align: center;
   font-family: monospace;
 }
@@ -21,7 +21,8 @@ label {
 }
 
 .item {
-  /* margin: 5px 5px; */
+  display: flex;
+  align-items: baseline;
 }
 
 .item > Typography {

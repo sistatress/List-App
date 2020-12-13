@@ -126,56 +126,37 @@ export default function App() {
   return (
     <div className="App">
       <Grid container spacing={3}>
+        
         {/* Navigation Bar */}
         <Grid item xs={12}>
           <NavBar />
         </Grid>
-        {/* <Grid item xs={1}>
-          <Paper className={classes.paper}>left xs=2</Paper>
-        </Grid> */}
-        {/* main */}
-        <Grid item xs={10}>
+
+        <Grid item lg={8}>
           <Grid
             container
-            direction="colum"
+            direction="column"
             justify="center"
-            //alignItems="center"
           >
             {isList ? (
-              <Grid
-                container
-                direction="row"
-                marginTop="15px"
-                justifyContent="space-evenly"
-              >
-                {/* List */}
-                <div className="list-container">
-                  <List
-                    list={list}
-                    handleInputList={updateItemValue}
-                    deleteItem={onDeleteItem}
-                  />
-                </div>
-                <div className="counters-container">
-                  <Counters
-                    list={list}
-                    onAdd={handleAdd}
-                    onSubtract={subtract}
-                  />
-                </div>
-              </Grid>
+                <List
+                  list={list}
+                  handleInputList={updateItemValue}
+                  deleteItem={onDeleteItem}
+                  onAdd={handleAdd}
+                  onSubtract={subtract}
+                />
             ) : null}
+          </Grid>
+          {/* user-input */}
 
-            {/* user-input */}
-
-            <div className="user-input">
+          <div className="user-input">
               <Input
                 value={input}
                 handleInput={handleInput}
                 saveInputTolist={saveInputTolist}
               />
             </div>
-          </Grid>
         </Grid>
         {/* <Grid item xs={1}>
           <Paper className={classes.paper}>rigth xs=2</Paper>

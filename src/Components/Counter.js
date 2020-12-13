@@ -8,13 +8,13 @@ import {
 const Counter = ({ id, value, onAdd, onSubtract }) => {
   //console.log(`value: ${value}, id: ${id}`);
   return (
-    <Grid
-      container
-      direction="colum"
-      justify="center"
-      className="item"
-    >
-      {/* <div className="item"> */}
+    // <Grid
+    //   container
+    //   direction="colum"
+    //   justify="center"
+    //   className="item"
+    // >
+      <div className="item">
         {/* <h3>Counter Component</h3> */}
         <Typography 
           className="counter-label" 
@@ -36,8 +36,8 @@ const Counter = ({ id, value, onAdd, onSubtract }) => {
         <button onClick={() => onAdd(id, value)}>+</button>
         <br />
         <button onClick={() => onDelete(id)}>Delete Counter</button> */}
-      {/* </div> */}
-    </Grid>
+      </div>
+    // </Grid>
   );
 };
 
