@@ -125,15 +125,58 @@ export default function App() {
 
   return (
     <div className="App">
-      <Grid container spacing={3} alignItems="center">
+      <Grid container spacing={3}>
+        {/* Navigation Bar */}
         <Grid item xs={12}>
           <NavBar />
         </Grid>
         <Grid item xs={2}>
           <Paper className={classes.paper}>left xs=2</Paper>
         </Grid>
+        {/* main */}
         <Grid item xs={8}>
-          <Paper className={classes.paper}>List creation xs=8</Paper>
+          <Grid
+            container
+            direction="colum"
+            justify="center"
+            //alignItems="center"
+          >
+            {isList ? (
+              <Grid
+                container
+                direction="row"
+                marginTop="15px"
+                justifyContent="space-evenly"
+              >
+                {/* List */}
+                <div className="list-container">
+                  <List
+                    list={list}
+                    handleInputList={updateItemValue}
+                    deleteItem={onDeleteItem}
+                  />
+                </div>
+                <div className="counters-container">
+                  {/* <Counter label={0} /> */}
+                  <Counters
+                    list={list}
+                    onAdd={handleAdd}
+                    onSubtract={subtract}
+                  />
+                </div>
+              </Grid>
+            ) : null}
+
+            {/* user-input */}
+
+            <div className="user-input">
+              <Input
+                value={input}
+                handleInput={handleInput}
+                saveInputTolist={saveInputTolist}
+              />
+            </div>
+          </Grid>
         </Grid>
         <Grid item xs={2}>
           <Paper className={classes.paper}>rigth xs=2</Paper>
@@ -142,30 +185,6 @@ export default function App() {
           <Paper className={classes.paper}>Footer xs=12</Paper>
         </Grid>
       </Grid>
-      <div className="user-input">
-        <Input
-          value={input}
-          handleInput={handleInput}
-          saveInputTolist={saveInputTolist}
-        />
-      </div>
-      <br />
-      <br />
-      {isList ? (
-        <div className="container">
-          <div className="list-container">
-            <List
-              list={list}
-              handleInputList={updateItemValue}
-              deleteItem={onDeleteItem}
-            />
-          </div>
-          <div className="counters-container">
-            {/* <Counter label={0} /> */}
-            <Counters list={list} onAdd={handleAdd} onSubtract={subtract} />
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
