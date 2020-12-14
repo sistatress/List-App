@@ -1,6 +1,11 @@
 import React from "react";
 import "./counter.css";
 import { Typography, Grid } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import AddRoundedIcon from "@material-ui/icons/AddRounded";
+import RemoveIcon from "@material-ui/icons/Remove";
+import RemoveRoundedIcon from "@material-ui/icons/RemoveRounded";
+import { IconButton } from "@material-ui/core";
 
 const Counter = ({ id, value, onAdd, onSubtract }) => {
   //console.log(`value: ${value}, id: ${id}`);
@@ -12,24 +17,22 @@ const Counter = ({ id, value, onAdd, onSubtract }) => {
         variant="caption"
         color="textSecondary"
       >
-        <div
-        // className='counter-value'
-        >
-          {value}
-        </div>
+        <div>{value}</div>
       </Typography>
-      <button
+      <IconButton
+        size="small"
         className="counter-button counter"
         onClick={() => onAdd(id, value)}
       >
-        +
-      </button>
-      <button
+        <AddRoundedIcon />
+      </IconButton>
+      <IconButton
+        size="small"
         className="counter-button counter"
         onClick={() => onSubtract(id, value)}
       >
-        -
-      </button>
+        <RemoveRoundedIcon />
+      </IconButton>
     </div>
   );
 };

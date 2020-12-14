@@ -3,6 +3,7 @@ import Input from "./Input";
 import "./list.css";
 import Counter from "./Counter";
 import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import { Grid, IconButton } from "@material-ui/core";
 
 const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
@@ -41,11 +42,12 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
           </Grid>
           <Grid item xs={1} className="grid-item-delete-button">
             <IconButton
+              size="small"
               aria-label="delete"
               className="delete-button"
               onClick={() => deleteItem(item.itemId)}
             >
-              <DeleteIcon />
+              <DeleteRoundedIcon />
             </IconButton>
           </Grid>
         </Grid>
