@@ -1,13 +1,31 @@
 .list-items {
-  /* margin: 5px 5px; */
+  margin: 5px 5px;
 }
 
 input {
   /* margin: 5px 5px; */
+  width: 180px;
+  margin: 5px 0px 5px 0px;
 }
 
 .input-items {
   /* margin: 5px 5px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item-delete-button {
+  padding: 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .delete-button {

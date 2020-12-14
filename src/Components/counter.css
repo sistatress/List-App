@@ -6,12 +6,12 @@ label {
 .counter-items {
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  justify-content: space-around;
+  background-color: yellowgreen;
 }
 
 .counter-label-typography {
-  /* margin-right: 22px;
-  margin-left: 10px; */
+  margin: 0px 2px 0px 2px;
   width: 18px;
   height: 18px;
   text-align: center;
@@ -25,7 +25,8 @@ label {
 }
 
 .counter-button {
-  margin: 5px 5px;
+  /* margin: 5px 5px; */
+  margin: 5px 2px 5px 0px;
 }
 
 .item > Typography {

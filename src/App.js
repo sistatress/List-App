@@ -130,8 +130,8 @@ export default function App() {
           <NavBar />
         </Grid>
 
-        <Grid item lg={8}>
-          <Grid container direction="column" justify="center">
+        <Grid className="main-grid" item={false} lg={12}>
+          <Grid container direction="column" justify="space-between">
             {isList ? (
               <List
                 list={list}
@@ -143,14 +143,15 @@ export default function App() {
             ) : null}
           </Grid>
           {/* user-input */}
-
-          <div className="user-input">
-            <Input
-              value={input}
-              handleInput={handleInput}
-              saveInputTolist={saveInputTolist}
-            />
-          </div>
+          <Grid item lg={8}>
+            <div className="user-input">
+              <Input
+                value={input}
+                handleInput={handleInput}
+                saveInputTolist={saveInputTolist}
+              />
+            </div>
+          </Grid>
         </Grid>
         {/* <Grid item xs={1}>
           <Paper className={classes.paper}>rigth xs=2</Paper>

@@ -2,11 +2,12 @@ body {
   margin: 0px;
 }
 
-.counters-container {
-  display: flex;
+.main-grid {
+  background-color: aqua;
+  margin: auto;
 }
-
 .user-input {
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
