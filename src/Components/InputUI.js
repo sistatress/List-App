@@ -1,7 +1,7 @@
 import React from "react";
-import InputUi from "@material-ui/core/Input";
+import Input from "@material-ui/core/Input";
 
-const Input = ({ value, ...action }) => {
+const InputUI = ({ value, ...action }) => {
   const handleInput = action.handleInput;
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
@@ -30,8 +30,7 @@ const Input = ({ value, ...action }) => {
 
   return (
     <>
-      {/* <h2>Input Component</h2> */}
-      <InputUi
+      <Input
         type="text"
         value={value}
         onChange={inputOnChangeAction}
@@ -41,7 +40,7 @@ const Input = ({ value, ...action }) => {
   );
 };
 
-export default Input;
+export default InputUI;
 
 export const logInputAction = (
   handleInput,

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 import "./App.css";
 import List from "./Components/List";
-import Input from "./Components/Input";
+import InputUI from "./Components/InputUI";
 import NavBar from "./Components/NavigationBar";
 import { Grid, Paper, makeStyles } from "@material-ui/core";
 
@@ -145,7 +145,7 @@ export default function App() {
           {/* user-input */}
           <Grid item lg={8}>
             <div className="user-input">
-              <Input
+              <InputUI
                 value={input}
                 handleInput={handleInput}
                 saveInputTolist={saveInputTolist}

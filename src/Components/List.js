@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "./Input";
+import Input from "./InputUI";
 import "./list.css";
 import Counter from "./Counter";
 import DeleteIcon from "@material-ui/icons/Delete";
