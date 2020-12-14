@@ -1,4 +1,5 @@
 import React from "react";
+import InputUi from "@material-ui/core/Input";
 
 const Input = ({ value, ...action }) => {
   const handleInput = action.handleInput;
@@ -30,7 +31,7 @@ const Input = ({ value, ...action }) => {
   return (
     <>
       {/* <h2>Input Component</h2> */}
-      <input
+      <InputUi
         type="text"
         value={value}
         onChange={inputOnChangeAction}
