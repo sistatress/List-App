@@ -2,7 +2,8 @@ import React from "react";
 import Input from "./Input";
 import "./list.css";
 import Counter from "./Counter";
-import { Grid } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { Grid, IconButton } from "@material-ui/core";
 
 const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
@@ -39,12 +40,13 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
             />
           </Grid>
           <Grid item xs={1} className="grid-item-delete-button">
-            <button
+            <IconButton
+              aria-label="delete"
               className="delete-button"
               onClick={() => deleteItem(item.itemId)}
             >
-              x
-            </button>
+              <DeleteIcon />
+            </IconButton>
           </Grid>
         </Grid>
       </div>
