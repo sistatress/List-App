@@ -42,6 +42,7 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
           </Grid>
           <Grid item xs={1} className="grid-item-delete-button">
             <IconButton
+              color="secondary"
               size="small"
               aria-label="delete"
               className="delete-button"
