@@ -2,18 +2,32 @@ import React from "react";
 import Input from "./InputUI";
 import "./list.css";
 import Counter from "./Counter";
+import Item from "./Item";
 import DeleteIcon from "@material-ui/icons/Delete";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import { Grid, IconButton } from "@material-ui/core";
 import { Transition } from "react-spring/renderprops";
 import { config, animated } from "react-spring";
+import { useState, useEffect } from "react";
 
 const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
   //const { itemId, itemValue, counterdefaultValue } = list;
+  const deep = list;
+  useEffect(() => {
+    const mounted = { current: true };
+    if (mounted) {
+      console.log(`list mounted`);
+    }
+
+    return () => {
+      mounted.current = false;
+      console.log(`list unmounted!`);
+    };
+  }, []);
 
   const showList = (_item, index) => {
     // console.log(`[ List ]
-    // itemId : ${item.itemId}`);
+    // itemId : ${item.itemId}`)
 
     /* Item */
     return (
@@ -26,7 +40,7 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
         from={{ opacity: 0, transform: "translate3d(-25%, 0px, 0px)" }}
         enter={{ opacity: 1, transform: "translate3d(0%, 0px, 0px)" }}
         leave={{
-          opacity: 0,
+          opacity: 1,
           height: 0,
           transform: "translate3d(25%, 0px, 0px)"
         }}
@@ -77,7 +91,22 @@ const List = ({ list, handleInputList, deleteItem, onAdd, onSubtract }) => {
     );
   };
 
-  return <>{list.map(showList)}</>;
+  return (
+    <>
+      {/* {list.map(showList)} */}
+      {list.map((item, index) => (
+        <Item
+          _item={item}
+          index={index}
+          list={list}
+          handleInputList={handleInputList}
+          deleteItem={deleteItem}
+          onAdd={onAdd}
+          onSubtract={onSubtract}
+        />
+      ))}
+    </>
+  );
 };
 
 export default List;
