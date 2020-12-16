@@ -6,6 +6,7 @@ const InputUI = ({ value, ...action }) => {
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
   const itemId = action.itemId;
+  console.log(`Itemcomponent: itemID: ${itemId}`);
 
   const inputOnChangeAction =
     handleInputList === undefined

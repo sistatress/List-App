@@ -6,19 +6,17 @@ import List from "./Components/List";
 import InputUI from "./Components/InputUI";
 import NavBar from "./Components/NavigationBar";
 import { Grid, Paper, makeStyles } from "@material-ui/core";
-import { Transition } from "react-spring/renderprops";
-import { config, animated } from "react-spring";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary
-  }
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1
+//   },
+//   paper: {
+//     padding: theme.spacing(2),
+//     textAlign: "center",
+//     color: theme.palette.text.secondary
+//   }
+// }));
 
 export default function App() {
   const [list, setList] = useState([]);
@@ -122,7 +120,7 @@ export default function App() {
   };
 
   const isList = list.length > 0 ? true : false;
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <div className="App">
@@ -134,17 +132,16 @@ export default function App() {
 
         <Grid className="main-grid" item={false} lg={12}>
           <Grid container direction="column" justify="space-between">
-              {
-                isList && (
-                  <List
-                    list={list}
-                    handleInputList={updateItemValue}
-                    deleteItem={onDeleteItem}
-                    onAdd={handleAdd}
-                    onSubtract={subtract}
-                  />
-                )
-              }
+            {isList && (
+              <List
+                isList={isList}
+                list={list}
+                handleInputList={updateItemValue}
+                deleteItem={onDeleteItem}
+                onAdd={handleAdd}
+                onSubtract={subtract}
+              />
+            )}
           </Grid>
           {/* user-input */}
           <Grid item lg={8}>
@@ -160,9 +157,9 @@ export default function App() {
         {/* <Grid item xs={1}>
           <Paper className={classes.paper}>rigth xs=2</Paper>
         </Grid> */}
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Paper className={classes.paper}>Footer xs=12</Paper>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );
