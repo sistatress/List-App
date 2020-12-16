@@ -6,6 +6,8 @@ import List from "./Components/List";
 import InputUI from "./Components/InputUI";
 import NavBar from "./Components/NavigationBar";
 import { Grid, Paper, makeStyles } from "@material-ui/core";
+import { Transition } from "react-spring/renderprops";
+import { config, animated } from "react-spring";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -132,15 +134,17 @@ export default function App() {
 
         <Grid className="main-grid" item={false} lg={12}>
           <Grid container direction="column" justify="space-between">
-            {isList ? (
-              <List
-                list={list}
-                handleInputList={updateItemValue}
-                deleteItem={onDeleteItem}
-                onAdd={handleAdd}
-                onSubtract={subtract}
-              />
-            ) : null}
+              {
+                isList && (
+                  <List
+                    list={list}
+                    handleInputList={updateItemValue}
+                    deleteItem={onDeleteItem}
+                    onAdd={handleAdd}
+                    onSubtract={subtract}
+                  />
+                )
+              }
           </Grid>
           {/* user-input */}
           <Grid item lg={8}>
