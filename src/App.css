@@ -1,0 +1,13 @@
+body {
+  margin: 0px;
+}
+
+.main-grid {
+  /* background-color: aqua; */
+  margin: auto;
+}
+.user-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

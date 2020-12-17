@@ -1,0 +1,39 @@
+label {
+  height: 18px;
+  width: 18px;
+}
+
+.counter-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: yellowgreen; */
+}
+
+.counter-label-typography {
+  margin: 0px 2px 0px 2px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.counter {
+  width: 25px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.counter-button {
+  /* margin: 5px 5px; */
+  margin: 5px 2px 5px 0px;
+}
+
+.item > Typography {
+  margin-right: 7px;
+}
+
+.counter-label {
+  width: 18px;
+  height: 18px;
+}
