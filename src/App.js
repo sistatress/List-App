@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 import "./App.css";
 import List from "./Components/List";
 import InputUI from "./Components/InputUI";
 import NavBar from "./Components/NavigationBar";
-import { Grid, Paper, makeStyles } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -21,6 +21,7 @@ import { Grid, Paper, makeStyles } from "@material-ui/core";
 export default function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
+  const ref = useRef();
 
   /* User Input */
 
@@ -32,6 +33,7 @@ export default function App() {
 
   // Add new item to list
   const saveInputTolist = (event) => {
+    console.log(`listItems: ${JSON.stringify(list)}`);
     const eventComing = event.key;
     //console.log(`[ saveInputTolist 1] event Coming ${eventComing}`);
 
@@ -85,8 +87,8 @@ export default function App() {
       ...listItems[itemIndex],
       counterValue: newCounterValue
     };
-    console.log(`listItems: ${JSON.stringify(listItems)}`);
-    console.log(`newCounterValue: ${newCounterValue}`);
+    //console.log(`listItems: ${JSON.stringify(listItems)}`);
+    //console.log(`newCounterValue: ${newCounterValue}`);
     setList([...listItems]);
   };
 
@@ -121,7 +123,7 @@ export default function App() {
 
   const isList = list.length > 0 ? true : false;
   // const classes = useStyles();
-
+  console.log(`listItems: ${JSON.stringify(list)}`);
   return (
     <div className="App">
       <Grid container spacing={3}>
@@ -147,6 +149,7 @@ export default function App() {
           <Grid item lg={8}>
             <div className="user-input">
               <InputUI
+                ref={ref}
                 value={input}
                 handleInput={handleInput}
                 saveInputTolist={saveInputTolist}

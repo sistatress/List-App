@@ -3,12 +3,11 @@ import Input from "./InputUI";
 import Counter from "./Counter";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import { Grid, IconButton } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { animated } from "react-spring";
 
 const Item = ({
   item,
-  index,
   style,
   list,
   handleInputList,
@@ -16,17 +15,17 @@ const Item = ({
   onAdd,
   onSubtract
 }) => {
-  const { itemId, itemValue, counterValue } = item;
 
   useEffect(() => {
     const mounted = { current: true };
     if (mounted) {
       console.log(`item mounted`);
       console.log(`_item props: ${JSON.stringify(item)}`);
-      console.log(`
-        itemID: ${itemId}
-        itemValue: ${itemValue}
-        counterValue: ${counterValue}
+      console.log(
+        `
+        itemID: ${item.itemId}
+        itemValue: ${item.itemValue}
+        counterValue: ${item.counterValue}
       `);
     }
 
@@ -37,7 +36,7 @@ const Item = ({
   }, [item]);
 
   return (
-    <animated.div key={index} style={style}>
+    <animated.div key={item.itemId} style={style}>
       <div className="list-items">
         <Grid
           container
@@ -47,19 +46,19 @@ const Item = ({
         >
           <Grid item xs={7}>
             <Input
-              value={itemValue}
+              value={item.itemValue}
               handleInputList={handleInputList}
-              itemId={itemId}
+              itemId={item.itemId}
               className="input-items"
             />
           </Grid>
           <Grid item xs={4}>
             <Counter
-              id={itemId}
+              id={item.itemId}
               list={list}
               onAdd={onAdd}
               onSubtract={onSubtract}
-              value={counterValue}
+              value={item.counterValue}
             />
           </Grid>
           <Grid item xs={1} className="grid-item-delete-button">
@@ -68,7 +67,7 @@ const Item = ({
               size="small"
               aria-label="delete"
               className="delete-button"
-              onClick={() => deleteItem(itemId)}
+              onClick={() => deleteItem(item.itemId)}
             >
               <DeleteRoundedIcon />
             </IconButton>

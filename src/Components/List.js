@@ -1,12 +1,11 @@
 import React from "react";
 import "./list.css";
 import Item from "./Item";
-import { animated, useTransition, config } from "react-spring";
+import { useTransition, config } from "react-spring";
 import { useEffect } from "react";
 
 const List = ({
   list,
-  isList,
   handleInputList,
   deleteItem,
   onAdd,
@@ -14,6 +13,7 @@ const List = ({
 }) => {
   useEffect(() => {
     const mounted = { current: true };
+    
     if (mounted) {
       console.log(`list mounted`);
     }
@@ -24,7 +24,7 @@ const List = ({
     };
   }, []);
 
-  const transition = useTransition(list, null, {
+  const transition = useTransition(list, item=>item.itemId, {
     config: config.gentle,
     from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
     enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
@@ -34,18 +34,17 @@ const List = ({
   return (
     <>
       {transition.map(
-        ({ item, props, key }, index) =>
+        ({ item, props, key }) =>
           item && (
-            //Todo
-            <Item
-              index={item.itemId}
-              style={props}
-              item={item}
-              handleInputList={handleInputList}
-              deleteItem={deleteItem}
-              onAdd={onAdd}
-              onSubtract={onSubtract}
-            />
+                <Item
+                  key={item.itemId}
+                  style={props}
+                  item={item}
+                  handleInputList={handleInputList}
+                  deleteItem={deleteItem}
+                  onAdd={onAdd}
+                  onSubtract={onSubtract}
+                />
           )
       )}
     </>

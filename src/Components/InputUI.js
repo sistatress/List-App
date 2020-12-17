@@ -1,12 +1,12 @@
 import React from "react";
 import Input from "@material-ui/core/Input";
 
-const InputUI = ({ value, ...action }) => {
+const InputUI = React.forwardRef(({ value, itemId, ...action }, ref) => {
   const handleInput = action.handleInput;
   const handleInputList = action.handleInputList;
   const saveInputTolist = action.saveInputTolist;
-  const itemId = action.itemId;
-  console.log(`Itemcomponent: itemID: ${itemId}`);
+  //const itemId = action.itemId;
+  //console.log(`Itemcomponent: itemID: ${itemId}`);
 
   const inputOnChangeAction =
     handleInputList === undefined
@@ -32,6 +32,7 @@ const InputUI = ({ value, ...action }) => {
   return (
     <>
       <Input
+        ref={ref}
         type="text"
         value={value}
         onChange={inputOnChangeAction}
@@ -39,7 +40,7 @@ const InputUI = ({ value, ...action }) => {
       />
     </>
   );
-};
+});
 
 export default InputUI;
 
