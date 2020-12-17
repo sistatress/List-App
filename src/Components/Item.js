@@ -10,12 +10,11 @@ const Item = ({
   item,
   style,
   list,
-  handleInputList,
+  updateItem,
   deleteItem,
-  onAdd,
+  incrementCounter,
   onSubtract
 }) => {
-
   useEffect(() => {
     const mounted = { current: true };
     if (mounted) {
@@ -26,7 +25,8 @@ const Item = ({
         itemID: ${item.itemId}
         itemValue: ${item.itemValue}
         counterValue: ${item.counterValue}
-      `);
+      `
+      );
     }
 
     return () => {
@@ -47,7 +47,7 @@ const Item = ({
           <Grid item xs={7}>
             <Input
               value={item.itemValue}
-              handleInputList={handleInputList}
+              updateItem={updateItem}
               itemId={item.itemId}
               className="input-items"
             />
@@ -56,7 +56,7 @@ const Item = ({
             <Counter
               id={item.itemId}
               list={list}
-              onAdd={onAdd}
+              incrementCounter={incrementCounter}
               onSubtract={onSubtract}
               value={item.counterValue}
             />

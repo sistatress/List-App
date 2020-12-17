@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./styles.css";
 import "./App.css";
@@ -7,21 +7,9 @@ import InputUI from "./Components/InputUI";
 import NavBar from "./Components/NavigationBar";
 import { Grid } from "@material-ui/core";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: "center",
-//     color: theme.palette.text.secondary
-//   }
-// }));
-
 export default function App() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
-  const ref = useRef();
 
   /* User Input */
 
@@ -31,11 +19,13 @@ export default function App() {
     setInput(newInput);
   };
 
-  // Add new item to list
-  const saveInputTolist = (event) => {
+  /***************** handle input items in List ****************/
+
+  // Create a new item
+  const createItem = (event) => {
     console.log(`listItems: ${JSON.stringify(list)}`);
     const eventComing = event.key;
-    //console.log(`[ saveInputTolist 1] event Coming ${eventComing}`);
+    //console.log(`[ createItem 1] event Coming ${eventComing}`);
 
     // No Enter event
     if (eventComing !== "Enter") {
@@ -58,10 +48,8 @@ export default function App() {
     setInput("");
   };
 
-  /* Input List */
-
-  // Modify list state value property
-  const updateItemValue = (value, id) => {
+  // Update item's input
+  const updateItem = (value, id) => {
     //console.log(`id : ${id}`)
     const itemIndex = list.findIndex(
       (itemElement) => itemElement.itemId === id
@@ -74,7 +62,23 @@ export default function App() {
     setList([...listItems]);
   };
 
-  const handleAdd = (id, value) => {
+  // delete item
+  const deleteItem = (id) => {
+    // Copy of the counters array
+    const listItems = [...list];
+
+    // Delete counter
+    const newList = listItems.filter((item) => item.itemId !== id);
+
+    // Set counters state
+    setList(newList);
+  };
+
+  /***************** /handle input items in List ****************/
+
+  /***************** handle items'Counter in List ****************/
+
+  const incrementCounter = (id, value) => {
     //console.log(`value: ${value} Id: ${id}`);
     const itemIndex = list.findIndex(
       (itemElement) => itemElement.itemId === id
@@ -110,20 +114,11 @@ export default function App() {
     setList([...listItems]);
   };
 
-  const onDeleteItem = (id) => {
-    // Copy of the counters array
-    const listItems = [...list];
-
-    // Delete counter
-    const newList = listItems.filter((item) => item.itemId !== id);
-
-    // Set counters state
-    setList(newList);
-  };
+  /***************** handle items'Counter in List ****************/
 
   const isList = list.length > 0 ? true : false;
-  // const classes = useStyles();
-  console.log(`listItems: ${JSON.stringify(list)}`);
+  //console.log(`listItems: ${JSON.stringify(list)}`);
+
   return (
     <div className="App">
       <Grid container spacing={3}>
@@ -138,9 +133,9 @@ export default function App() {
               <List
                 isList={isList}
                 list={list}
-                handleInputList={updateItemValue}
-                deleteItem={onDeleteItem}
-                onAdd={handleAdd}
+                updateItem={updateItem}
+                deleteItem={deleteItem}
+                incrementCounter={incrementCounter}
                 onSubtract={subtract}
               />
             )}
@@ -149,10 +144,9 @@ export default function App() {
           <Grid item lg={8}>
             <div className="user-input">
               <InputUI
-                ref={ref}
                 value={input}
                 handleInput={handleInput}
-                saveInputTolist={saveInputTolist}
+                createItem={createItem}
               />
             </div>
           </Grid>
@@ -167,21 +161,6 @@ export default function App() {
     </div>
   );
 }
-
-// const updateCounter = (id, value, result) => {
-//   // Find the counter
-//   const counterIndex = counters.findIndex(
-//     (counterElement) => counterElement.id === id
-//   );
-//   // Copy of the counters array
-//   const newCounters = [...counters];
-
-//   // Udate the counter value
-//   newCounters[counterIndex] = { ...newCounters[counterIndex], value: result };
-
-//   // Set counters state
-//   setCounts(newCounters);
-// };
 
 // LIST SCHEMA
 /*

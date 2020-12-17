@@ -1,30 +1,30 @@
 import React from "react";
 import Input from "@material-ui/core/Input";
 
-const InputUI = React.forwardRef(({ value, itemId, ...action }, ref) => {
+const InputUI = ({ value, itemId, ...action }, ref) => {
   const handleInput = action.handleInput;
-  const handleInputList = action.handleInputList;
-  const saveInputTolist = action.saveInputTolist;
+  const updateItem = action.updateItem;
+  const createItem = action.createItem;
   //const itemId = action.itemId;
   //console.log(`Itemcomponent: itemID: ${itemId}`);
 
   const inputOnChangeAction =
-    handleInputList === undefined
+    updateItem === undefined
       ? (e) => handleInput(e.target.value)
-      : (e) => handleInputList(e.target.value, itemId);
+      : (e) => updateItem(e.target.value, itemId);
 
   const inputOnKeyPressAction =
-    saveInputTolist === undefined
+    createItem === undefined
       ? () =>
           console.log(
             "TODO: tap Enter in list should permit to focus next item (input) "
           )
-      : (event) => saveInputTolist(event);
+      : (event) => createItem(event);
 
   // logInputAction(
   //   handleInput,
-  //   handleInputList,
-  //   saveInputTolist,
+  //   updateItem,
+  //   createItem,
   //   inputOnChangeAction,
   //   inputOnKeyPressAction
   // );
@@ -32,7 +32,6 @@ const InputUI = React.forwardRef(({ value, itemId, ...action }, ref) => {
   return (
     <>
       <Input
-        ref={ref}
         type="text"
         value={value}
         onChange={inputOnChangeAction}
@@ -40,14 +39,14 @@ const InputUI = React.forwardRef(({ value, itemId, ...action }, ref) => {
       />
     </>
   );
-});
+};
 
 export default InputUI;
 
 export const logInputAction = (
   handleInput,
-  handleInputList,
-  saveInputTolist,
+  updateItem,
+  createItem,
   inputOnChangeAction,
   inputOnKeyPressAction
 ) => {
@@ -58,13 +57,13 @@ export const logInputAction = (
 
   ${handleInput}
 
-  ---------------handleInputList---------------------
+  ---------------updateItem---------------------
 
-  ${handleInputList}
+  ${updateItem}
 
-  ---------------saveInputTolist---------------------
+  ---------------createItem---------------------
 
-  ${saveInputTolist}
+  ${createItem}
 
   ---------------inputOnChangeAction-----------------
 

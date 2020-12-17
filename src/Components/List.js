@@ -6,14 +6,14 @@ import { useEffect } from "react";
 
 const List = ({
   list,
-  handleInputList,
+  updateItem,
   deleteItem,
-  onAdd,
+  incrementCounter,
   onSubtract
 }) => {
   useEffect(() => {
     const mounted = { current: true };
-    
+
     if (mounted) {
       console.log(`list mounted`);
     }
@@ -24,7 +24,7 @@ const List = ({
     };
   }, []);
 
-  const transition = useTransition(list, item=>item.itemId, {
+  const transition = useTransition(list, (item) => item.itemId, {
     config: config.gentle,
     from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
     enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
@@ -36,15 +36,15 @@ const List = ({
       {transition.map(
         ({ item, props, key }) =>
           item && (
-                <Item
-                  key={item.itemId}
-                  style={props}
-                  item={item}
-                  handleInputList={handleInputList}
-                  deleteItem={deleteItem}
-                  onAdd={onAdd}
-                  onSubtract={onSubtract}
-                />
+            <Item
+              key={item.itemId}
+              style={props}
+              item={item}
+              updateItem={updateItem}
+              deleteItem={deleteItem}
+              incrementCounter={incrementCounter}
+              onSubtract={onSubtract}
+            />
           )
       )}
     </>
