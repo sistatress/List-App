@@ -52,3 +52,19 @@ const List = ({
 };
 
 export default List;
+
+
+// LIST SCHEMA
+/*
+      
+    [{item1}, {item2}, {item3}, ...]
+    item1 : [0] item2 : [1], item3 : [2], ...
+    
+    [
+      {itemId : id0, value: inputValue, counterdefaultValue : 0}, // item1 : [0]
+      {itemId : id1, value: inputValue, counterValue: defaultValue=0}, // item2 : [1]
+      {itemId : id2, value: inputValue, counterValue: defaultValue=0}, // item3 : [2] 
+      ...
+    ]
+  
+  */
