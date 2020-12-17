@@ -96,7 +96,7 @@ export default function App() {
     setList([...listItems]);
   };
 
-  const subtract = (id, value) => {
+  const decrementCounter = (id, value) => {
     //console.log(`value: ${value} Id: ${id}`);
     const itemIndex = list.findIndex(
       (itemElement) => itemElement.itemId === id
@@ -136,7 +136,7 @@ export default function App() {
                 updateItem={updateItem}
                 deleteItem={deleteItem}
                 incrementCounter={incrementCounter}
-                onSubtract={subtract}
+                decrementCounter={decrementCounter}
               />
             )}
           </Grid>

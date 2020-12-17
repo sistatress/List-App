@@ -13,7 +13,7 @@ const Item = ({
   updateItem,
   deleteItem,
   incrementCounter,
-  onSubtract
+  decrementCounter
 }) => {
   useEffect(() => {
     const mounted = { current: true };
@@ -57,7 +57,7 @@ const Item = ({
               id={item.itemId}
               list={list}
               incrementCounter={incrementCounter}
-              onSubtract={onSubtract}
+              decrementCounter={decrementCounter}
               value={item.counterValue}
             />
           </Grid>

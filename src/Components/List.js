@@ -9,7 +9,7 @@ const List = ({
   updateItem,
   deleteItem,
   incrementCounter,
-  onSubtract
+  decrementCounter
 }) => {
   useEffect(() => {
     const mounted = { current: true };
@@ -43,7 +43,7 @@ const List = ({
               updateItem={updateItem}
               deleteItem={deleteItem}
               incrementCounter={incrementCounter}
-              onSubtract={onSubtract}
+              decrementCounter={decrementCounter}
             />
           )
       )}
